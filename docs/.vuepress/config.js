@@ -1,41 +1,136 @@
 module.exports = {
-  title: 'Blog',
-  description: 'Blog',
-  base:'/blog',
+  title: '',
+  base: '/web-word/',
+  descritption: '前端知识栈',
   theme: 'reco',
+  themeConfig: {
+    // 博客配置
+  },
   locales: {
     '/': {
       lang: 'zh-CN'
     }
   },
+  port: '9000',
+  head: [
+    ['link', { href: 'https://cdn.jsdelivr.net/npm/@docsearch/css@alpha', rel: 'stylesheet' }],
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/@docsearch/js@alpha' }]
+  ],
   themeConfig: {
+    type: 'blog',
+    // 导航栏配置
     subSidebar: 'auto',
     nav: [
       { text: '首页', link: '/' },
+      { text: '前端框架', link: '/framework/Vue' },
       {
-        text: '个人介绍',
+        text: '前端技术',
         items: [
-          { text: '掘金', link: 'https://juejin.cn' },
-          { text: '简书', link: 'https://juejin.cn' }
+          { text: 'TypeScript', link: 'https://www.tslang.cn/' },
+          { text: 'Vue.js', link: 'https://cn.vuejs.org/' },
+          { text: 'React', link: 'https://react.docschina.org/' },
+          { text: 'Vuepress', link: 'https://vuepress.vuejs.org/zh/' }
+        ]
+      },
+      {
+        text: 'UI组件库',
+        items: [
+          { text: 'Element UI', link: 'https://element.eleme.cn/#/zh-CN' },
+          {
+            text: 'Element Plus',
+            link: 'https://element-plus.gitee.io/#/zh-CN/'
+          },
+          {
+            text: 'Ant Design Vue',
+            link: 'https://www.antdv.com/docs/vue/introduce-cn/'
+          },
+          { text: 'Vant', link: 'https://vant-contrib.gitee.io/vant/#/zh-CN/' }
         ]
       }
     ],
-    sidebar:[
-      {
-        title:'欢迎学习',
-        path:'/',
-        collapsable: false,
-        children:[
-          {title:'必读',path:'/'}
-        ]
-      },{
-        title:'基础学习',
-        path:'/javascript/dataTypes',
-        collapsable:false,
-        children:[
-          {title:'数据类型',path:'/javascript/dataTypes'}
-        ]
-      }
-    ]
+    // 侧边栏配置
+    sidebar: {
+      '/guide/': [
+        {
+          title: 'Javascript',
+          children: [
+            { title: '数据类型', path: '/guide/javascript/dataType' },
+            { title: '防抖与节流', path: '/guide/javascript/debounce' },
+            { title: '函数柯里化', path: '/guide/javascript/curry' }
+          ]
+        },
+        {
+          title: 'Vue',
+          children: [
+            { title: 'axios封装', path: '/guide/vue/axios' },
+            { title: '高德地图应用', path: '/guide/vue/amap' },
+            { title: 'websocket消息通知', path: '/guide/vue/websocket' },
+            { title: 'node版本管理-nvm', path: '/guide/vue/nvm' }
+          ]
+        },
+        {
+          title: '小程序',
+          children: [
+            { title: '微信JSSDK', path: '/guide/miniprogram/wechat' },
+            { title: '小程序全局样式', path: '/guide/miniprogram/globalCss' }
+          ]
+        },
+        {
+          title: '代码规范',
+          collapsable: true,
+          children: [
+            { title: '命名规则', path: '/guide/specification/' },
+            { title: 'Js编写规范', path: '/guide/specification/js' },
+            { title: 'Vue编写规范', path: '/guide/specification/vue' },
+            { title: 'Eslint规范', path: '/guide/specification/Eslint' },
+            { title: 'Commit规范', path: '/guide/specification/commitLint' },
+            { title: 'Prettier', path: '/guide/specification/prettier' }
+          ]
+        },
+        {
+          title: '算法',
+          children: [{ title: 'leetCode Hot 100', path: '/guide/LeetCode/leetcode' }]
+        },
+        {
+          title: '开发环境',
+          children: [{ title: 'SSH key 配置', path: '/guide/system/ssh' }]
+        }
+      ],
+      '/components/': [
+        {
+          title: '组件',
+          children: ['Dialogs']
+        }
+      ],
+      '/framework/': ['Vue', 'Centos'],
+      '/product/': [
+        {
+          title: '智驾救援',
+          children: ['Rescue']
+        }
+      ],
+      '/question/': [
+        {
+          title: '每日一题',
+          children: ['base']
+        }
+      ]
+    },
+    markdown: {
+      lineNumbers: true,
+      toc: { includeLevel: [2, 3] }
+    },
+    lastUpdated: 'Last Updated',
+    plugins: ['@vuepress/back-to-top'],
+    blogConfig: {
+      // tag: {
+      //   location: -1, // 在导航栏菜单中所占的位置，默认3
+      //   text: 'Tag' // 默认文案 “标签”
+      // }
+    },
+    valineConfig: {
+      appId: '6vo03jHeHlUIU8WjdtuuMWLi-gzGzoHsz', // your appId
+      appKey: 'oMaM11IWapIMW4G2JXPa6nxC' // your appKey
+    }
   }
 }
