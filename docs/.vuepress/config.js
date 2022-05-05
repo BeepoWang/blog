@@ -1,6 +1,6 @@
 module.exports = {
   title: '',
-  base: '/web-word/',
+  base: '/blog',
   descritption: '前端知识栈',
   theme: 'reco',
   themeConfig: {
@@ -93,7 +93,11 @@ module.exports = {
         },
         {
           title: '开发环境',
-          children: [{ title: 'SSH key 配置', path: '/guide/system/ssh' }]
+          children: [{ title: 'SSH key 配置', path: '/system/ssh' }]
+        },
+        {
+          title: '网络',
+          children: [{ title: 'XSS、XSRF 网络安全', path: '/network/xss' }]
         }
       ],
       '/components/': [
