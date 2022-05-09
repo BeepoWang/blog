@@ -1,6 +1,6 @@
 module.exports = {
-  title: '',
-  base: '/blog',
+  title: '前端学习',
+  base: '/',
   descritption: '前端知识栈',
   theme: 'reco',
   themeConfig: {
@@ -22,7 +22,7 @@ module.exports = {
     subSidebar: 'auto',
     nav: [
       { text: '首页', link: '/' },
-      { text: '前端框架', link: '/framework/Vue' },
+      // { text: '前端框架', link: '/framework/Vue' },
       {
         text: '前端技术',
         items: [
