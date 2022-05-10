@@ -1,6 +1,8 @@
 ---
 title: 数据类型
 date: '2022-04-28'
+categories:
+  - Frontend
 tags:
   - javascript
 ---

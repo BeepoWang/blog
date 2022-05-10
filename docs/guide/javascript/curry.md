@@ -2,7 +2,7 @@
 title: 函数柯里化、函数组合
 date: '2022-04-28'
 categories:
-  - 前端
+  - Frontend
 tags:
   - javascript
 ---

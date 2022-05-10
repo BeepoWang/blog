@@ -1,6 +1,8 @@
 ---
 title: 防抖与节流
 date: '2022-04-28'
+categories:
+  - Frontend
 tags:
 - javascript
 ---
