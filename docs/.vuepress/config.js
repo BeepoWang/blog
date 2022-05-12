@@ -13,8 +13,8 @@ module.exports = {
   },
   port: '9000',
   head: [
-    ['link', { href: 'https://cdn.jsdelivr.net/npm/@docsearch/css@alpha', rel: 'stylesheet' }],
-    ['script', { src: 'https://cdn.jsdelivr.net/npm/@docsearch/js@alpha' }]
+    ['link', { href: 'https://cdn.jsdelivr.net/npm/@docsearch/css@3', rel: 'stylesheet' }],
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/@docsearch/js@3' }]
   ],
   themeConfig: {
     type: 'blog',
@@ -50,75 +50,76 @@ module.exports = {
     ],
     // 侧边栏配置
     sidebar: {
-      '/guide/': [
-        {
-          title: 'Javascript',
-          children: [
-            { title: '数据类型', path: '/guide/javascript/dataType' },
-            { title: '防抖与节流', path: '/guide/javascript/debounce' },
-            { title: '函数柯里化', path: '/guide/javascript/curry' }
-          ]
-        },
-        {
-          title: 'Vue',
-          children: [
-            { title: 'axios封装', path: '/guide/vue/axios' },
-            { title: '高德地图应用', path: '/guide/vue/amap' },
-            { title: 'websocket消息通知', path: '/guide/vue/websocket' },
-            { title: 'node版本管理-nvm', path: '/guide/vue/nvm' }
-          ]
-        },
-        {
-          title: '小程序',
-          children: [
-            { title: '微信JSSDK', path: '/guide/miniprogram/wechat' },
-            { title: '小程序全局样式', path: '/guide/miniprogram/globalCss' }
-          ]
-        },
-        {
-          title: '代码规范',
-          collapsable: true,
-          children: [
-            { title: '命名规则', path: '/guide/specification/' },
-            { title: 'Js编写规范', path: '/guide/specification/js' },
-            { title: 'Vue编写规范', path: '/guide/specification/vue' },
-            { title: 'Eslint规范', path: '/guide/specification/Eslint' },
-            { title: 'Commit规范', path: '/guide/specification/commitLint' },
-            { title: 'Prettier', path: '/guide/specification/prettier' }
-          ]
-        },
-        {
-          title: '算法',
-          children: [{ title: 'leetCode Hot 100', path: '/guide/LeetCode/leetcode' }]
-        },
-        {
-          title: '开发环境',
-          children: [{ title: 'SSH key 配置', path: '/system/ssh' }]
-        },
-        {
-          title: '网络',
-          children: [{ title: 'XSS、XSRF 网络安全', path: '/network/xss' }]
-        }
-      ],
-      '/components/': [
-        {
-          title: '组件',
-          children: ['Dialogs']
-        }
-      ],
-      '/framework/': ['Vue', 'Centos'],
-      '/product/': [
-        {
-          title: '智驾救援',
-          children: ['Rescue']
-        }
-      ],
-      '/question/': [
-        {
-          title: '每日一题',
-          children: ['base']
-        }
-      ]
+      // '/guide/': [
+      //   {
+      //     title: 'Javascript',
+      //     children: [
+      //       { title: '数据类型', path: '/guide/javascript/dataType' },
+      //       { title: '防抖与节流', path: '/guide/javascript/debounce' },
+      //       { title: '函数柯里化', path: '/guide/javascript/curry' },
+      //       { title: 'valueOf / toString', path: '/guide/javascript/valueOf' }
+      //     ]
+      //   },
+      //   {
+      //     title: 'Vue',
+      //     children: [
+      //       { title: 'axios封装', path: '/guide/vue/axios' },
+      //       { title: '高德地图应用', path: '/guide/vue/amap' },
+      //       { title: 'websocket消息通知', path: '/guide/vue/websocket' },
+      //       { title: 'node版本管理-nvm', path: '/guide/vue/nvm' }
+      //     ]
+      //   },
+      //   {
+      //     title: '小程序',
+      //     children: [
+      //       { title: '微信JSSDK', path: '/guide/miniprogram/wechat' },
+      //       { title: '小程序全局样式', path: '/guide/miniprogram/globalCss' }
+      //     ]
+      //   },
+      //   {
+      //     title: '代码规范',
+      //     collapsable: true,
+      //     children: [
+      //       { title: '命名规则', path: '/guide/specification/' },
+      //       { title: 'Js编写规范', path: '/guide/specification/js' },
+      //       { title: 'Vue编写规范', path: '/guide/specification/vue' },
+      //       { title: 'Eslint规范', path: '/guide/specification/Eslint' },
+      //       { title: 'Commit规范', path: '/guide/specification/commitLint' },
+      //       { title: 'Prettier', path: '/guide/specification/prettier' }
+      //     ]
+      //   },
+      //   {
+      //     title: '算法',
+      //     children: [{ title: 'leetCode Hot 100', path: '/guide/LeetCode/leetcode' }]
+      //   },
+      //   {
+      //     title: '开发环境',
+      //     children: [{ title: 'SSH key 配置', path: '/system/ssh' }]
+      //   },
+      //   {
+      //     title: '网络',
+      //     children: [{ title: 'XSS、XSRF 网络安全', path: '/network/xss' }]
+      //   }
+      // ],
+      // '/components/': [
+      //   {
+      //     title: '组件',
+      //     children: ['Dialogs']
+      //   }
+      // ],
+      // '/framework/': ['Vue', 'Centos'],
+      // '/product/': [
+      //   {
+      //     title: '智驾救援',
+      //     children: ['Rescue']
+      //   }
+      // ],
+      // '/question/': [
+      //   {
+      //     title: '每日一题',
+      //     children: ['base']
+      //   }
+      // ]
     },
     markdown: {
       lineNumbers: true,
@@ -137,4 +138,4 @@ module.exports = {
       appKey: 'oMaM11IWapIMW4G2JXPa6nxC' // your appKey
     }
   }
-}
+};

@@ -5,16 +5,16 @@ export default ({ router, Vue, isServer }) => {
       setTimeout(() => {
         try {
           docsearch({
-            appId: "HVQRIKLSFA",
-            apiKey: "962f6732c6ad91fae5ce51ea30ece411",
-            indexName: "blog",
+            appId: 'MTD6SONHRQ',
+            apiKey: '3edfd4b716cabbdd5011b132f924b4bc',
+            indexName: 'beppo',
             container: '.search-box',
             debug: false
           });
-        } catch(e) {
+        } catch (e) {
           console.log(e);
         }
-      }, 100)
-    },
+      }, 100);
+    }
   });
 };
