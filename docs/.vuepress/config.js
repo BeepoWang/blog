@@ -1,5 +1,5 @@
 module.exports = {
-  title: '前端学习',
+  title: '繁华落尽是沧桑',
   base: '/',
   descritption: '前端知识栈',
   theme: 'reco',
@@ -13,6 +13,7 @@ module.exports = {
   },
   port: '9000',
   head: [
+    ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }],
     ['link', { href: 'https://cdn.jsdelivr.net/npm/@docsearch/css@3', rel: 'stylesheet' }],
     ['script', { src: 'https://cdn.jsdelivr.net/npm/@docsearch/js@3' }]
   ],
@@ -133,6 +134,11 @@ module.exports = {
       //   text: 'Tag' // 默认文案 “标签”
       // }
     },
+    // 备案
+    record: ' 繁华落尽是沧桑',
+    recordLink: 'http://www.beppo.fun',
+    cyberSecurityRecord: '豫ICP备20001334号-1',
+    cyberSecurityLink: '',
     valineConfig: {
       appId: '6vo03jHeHlUIU8WjdtuuMWLi-gzGzoHsz', // your appId
       appKey: 'oMaM11IWapIMW4G2JXPa6nxC' // your appKey
