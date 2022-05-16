@@ -12,11 +12,11 @@ tags:
 - String 基本类型
 - Number 基本类型
 - Boolean 基本类型
-- Symbol 基本类型
+- Object 引用类型
 - Null 基本类型
 - Undefined 基本类型
+- Symbol 基本类型
 - BigInt 基本类型
-- Object 引用类型
 :::tip
 - object 常见的类型：Array、Math、Date、Function
 - BigInt 谷歌 64 版本推出
