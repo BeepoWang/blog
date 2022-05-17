@@ -4,7 +4,7 @@ date: '2022-04-28'
 categories:
   - Frontend
 tags:
-- javascript
+  - javascript
 ---
 
 ## 防抖函数
@@ -19,11 +19,11 @@ tags:
  * @params delay 延迟执行时间
  *
  */
-const debounce = function(fn, delay) {
+const debounce = function (fn, delay) {
   // 初始化定时器
   let timer = null
   // 返回一个闭包函数，用闭包保存timer
-  return function() {
+  return function () {
     // 每次执行清空上次的定时器
     clearTimeout(timer)
     // 获取方法的入参
@@ -43,9 +43,9 @@ const debounce = function(fn, delay) {
 游戏技能 cd，在 cd 时间内只能执行一次
 
 ```js
-const throttle = function(fn, delay) {
+const throttle = function (fn, delay) {
   const start = 0
-  return function() {
+  return function () {
     let now = Date.now()
     const args = arguments
     if (now - start >= delay) {
@@ -55,4 +55,3 @@ const throttle = function(fn, delay) {
   }
 }
 ```
-
