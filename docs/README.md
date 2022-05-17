@@ -1,8 +1,8 @@
 ---
 home: true
-# heroImage: /hero.png
-heroText: 前端知识学习
-tagline: 规范、组件、框架
+bgImage: /banner.jpg
+heroText: 前端杂院
+tagline: 朝罢从容归陋院,喜看旭日散晴辉
 actionText: 开始学习 →
 actionLink: /guide/javascript/dataType
 features:
@@ -12,7 +12,7 @@ features:
     details: 前端 App、H5 通用组件维护
   - title: 前端框架
     details: PC端前端框架、App前端框架
-    heroImageStyle: { maxHeight: '200px' }
+    heroImageStyle: { maxHeight: '300px' }
 # - title: feature 4
 #   details: feature 4 details
 # - title: feature 5
