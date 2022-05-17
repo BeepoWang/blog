@@ -66,7 +66,7 @@ Object.prototype.toString.call([]) // [object Array]
 Object.prototype.toString.call(/123/g) // [object RegExp]
 Object.prototype.toString.call(new Date()) // [object Date]
 Object.prototype.toString.call(() => {}) // [object Function]
-object.prototype.toString.call(window) // [object Window]
+Object.prototype.toString.call(window) // [object Window]
 Object.prototype.toString.call(document) // [object HTMLDocument]
 ```
 

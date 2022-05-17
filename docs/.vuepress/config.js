@@ -15,7 +15,20 @@ module.exports = {
   head: [
     ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }],
     ['link', { href: 'https://cdn.jsdelivr.net/npm/@docsearch/css@3', rel: 'stylesheet' }],
-    ['script', { src: 'https://cdn.jsdelivr.net/npm/@docsearch/js@3' }]
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/@docsearch/js@3' }],
+    [
+      'script',
+      {},
+      `
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?54b706f821d7e9d401602d910ffb726d";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();   
+      `
+    ]
   ],
   themeConfig: {
     type: 'blog',
@@ -124,7 +137,15 @@ module.exports = {
       toc: { includeLevel: [2, 3] }
     },
     lastUpdated: 'Last Updated',
-    plugins: ['@vuepress/back-to-top'],
+    plugins: [
+      '@vuepress/back-to-top',
+      [
+        '@vuepress/google-analytics',
+        {
+          ga: 'G-4B96Z45NQV' // UA-00000000-0
+        }
+      ]
+    ],
     blogConfig: {
       // tag: {
       //   location: -1, // 在导航栏菜单中所占的位置，默认3
