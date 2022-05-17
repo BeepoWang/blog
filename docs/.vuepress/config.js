@@ -7,7 +7,7 @@ module.exports = {
     // 博客配置
   },
   locales: {
-    '/': {``
+    '/': {
       lang: 'zh-CN'
     }
   },
