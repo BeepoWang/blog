@@ -138,7 +138,6 @@ module.exports = {
     },
     lastUpdated: 'Last Updated',
     plugins: [
-      ['@vuepress/back-to-top'],
       [
         'vuepress-plugin-nuggets-style-copy',
         {
@@ -151,9 +150,10 @@ module.exports = {
       [
         '@vuepress/google-analytics',
         {
-          ga: 'G-4B96Z45NQV' // UA-00000000-0
+          ga: 'G-STRHV338JN' // UA-00000000-0
         }
-      ]
+      ],
+      '@vuepress/back-to-top'
     ],
     blogConfig: {
       // tag: {
