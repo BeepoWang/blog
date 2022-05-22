@@ -167,6 +167,7 @@ module.exports = {
     cyberSecurityRecord: '豫ICP备20001334号-1',
     cyberSecurityLink: '',
     valineConfig: {
+      avatar: 'wavatar',
       appId: '6vo03jHeHlUIU8WjdtuuMWLi-gzGzoHsz', // your appId
       appKey: 'oMaM11IWapIMW4G2JXPa6nxC' // your appKey
     }
