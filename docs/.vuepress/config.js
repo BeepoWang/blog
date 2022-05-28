@@ -96,7 +96,8 @@ module.exports = {
             { title: 'axios封装', path: '/guide/vue/axios' },
             { title: '高德地图应用', path: '/guide/vue/amap' },
             { title: 'websocket消息通知', path: '/guide/vue/websocket' },
-            { title: 'Vue复习', path: '/guide/vue/reStudyVue' }
+            { title: 'Vue复习', path: '/guide/vue/reStudyVue' },
+            { title: 'Vue3 学习', path: '/guide/vue/vue3' }
           ]
         },
         {
