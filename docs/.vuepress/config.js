@@ -96,13 +96,15 @@ module.exports = {
             { title: 'axios封装', path: '/guide/vue/axios' },
             { title: '高德地图应用', path: '/guide/vue/amap' },
             { title: 'websocket消息通知', path: '/guide/vue/websocket' },
-            { title: 'node版本管理-nvm', path: '/guide/vue/nvm' },
             { title: 'Vue复习', path: '/guide/vue/reStudyVue' }
           ]
         },
         {
           title: '开发环境',
-          children: [{ title: 'SSH key 配置', path: '/guide/system/ssh' }]
+          children: [
+            { title: 'SSH key 配置', path: '/guide/system/ssh' },
+            { title: 'node版本管理-nvm', path: '/guide/system/nvm' }
+          ]
         },
         {
           title: '网络',
