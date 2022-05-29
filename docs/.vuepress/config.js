@@ -97,14 +97,17 @@ module.exports = {
             { title: '高德地图应用', path: '/guide/vue/amap' },
             { title: 'websocket消息通知', path: '/guide/vue/websocket' },
             { title: 'Vue复习', path: '/guide/vue/reStudyVue' },
-            { title: 'Vue3 学习', path: '/guide/vue/vue3' }
+            { title: 'Vue3 学习(1)', path: '/guide/vue/vue3' },
+            { title: 'Vue3 学习(2)', path: '/guide/vue/vue3-lifecycle' },
+            { title: 'Vue3 学习(3)', path: '/guide/vue/vue3-components' }
           ]
         },
         {
           title: '开发环境',
           children: [
             { title: 'SSH key 配置', path: '/guide/system/ssh' },
-            { title: 'node版本管理-nvm', path: '/guide/system/nvm' }
+            { title: 'node版本管理-nvm', path: '/guide/system/nvm' },
+            { title: 'Linux下nginx安装', path: '/guide/system/Nginx' }
           ]
         },
         {

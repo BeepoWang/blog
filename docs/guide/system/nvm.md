@@ -12,12 +12,30 @@ tags:
 
 [nvm](https://github.com/nvm-sh/nvm) is a version manager for node.js, designed to be installed per-user, and invoked per-shell. nvm works on any POSIX-compliant shell (sh, dash, ksh, zsh, bash), in particular on these platforms: unix, macOS, and windows WSL.
 
-## :dart: 下载与安装
+## :dart: Windows下载与安装
 
 直接访问[:inbox_tray:](https://github.com/coreybutler/nvm-windows/releases)，选择 nvm-setup.zip。下载后直接安装皆可
 ![image](https://persongitbook.oss-cn-beijing.aliyuncs.com/nvmInstall.png)
 
 ![image](https://persongitbook.oss-cn-beijing.aliyuncs.com/nodePosition.png)
+
+## :dart:  Linux使用 [nvm](https://github.com/nvm-sh/nvm/blob/master/README.md) 安装 node 环境
+
+1. 运行命令,安装 nvm
+
+```
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+```
+
+![](https://persongitbook.oss-cn-beijing.aliyuncs.com/nvm-install.png?versionId=CAEQIxiBgMCD28nGgBgiIGRiZjc1YjRhODE4NzQ2YWZhMDRhMzcxNjlkMTdkM2Qw)
+
+2. 查看 nvm 配置文件是生成，可以查看 .bash_profile / .bashrc 文件，查看下配置信息写入了那个文件，然后运行命令，是配置生效,运行命令安装相应的 node 版本即可
+
+```
+source .bashrc
+```
+
+![](https://persongitbook.oss-cn-beijing.aliyuncs.com/nvm-test.png?versionId=CAEQIxiBgMDM4NnGgBgiIGFmYzU3OTJlOWQ0NTRhYjJiYjFkZWFlNWU1OTM0ZTFk)
 
 ## :dart: 验证安装
 
@@ -38,6 +56,8 @@ tags:
 - `nvm alias` 给不同的版本添加别名
 - `nvm unalias` 删除已定义的别名
 - `nvm reinstall-packages` 在当前版本 node 环境下，重新全局安装指定版本号的 npm 包
+
+
 
 #### 参考文档
 

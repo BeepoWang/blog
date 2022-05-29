@@ -5,7 +5,6 @@ categories:
   - Interview
 tags:
   - javascript
-  - 面试
 ---
 
 ## 1. window 对象都包含什么属性

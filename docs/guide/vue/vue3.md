@@ -1,6 +1,7 @@
 ---
-title: 'Vue3 学习'
+title: 'Vue3 学习(1)- Compositions API'
 date: '2022-05-28'
+sticky: 1
 tags:
   - vue
 ---
@@ -58,7 +59,6 @@ export default {
 
 - 尽量不要与 Vue2 配置混用
 
-- setup 不能是一个 async 函数，也不能是一个箭头函数
 
 :::
 
@@ -148,6 +148,30 @@ const obj = reactive({
 
 - reactive 定义的数据：操作和读取数据 **均不需要`.value`**
 
+## toRef 与 toRefs
+
+1. `toRef`作用： 创建一个 ref 对象，其 value 值指向另一个对象中某个属性
+2. 语法：
+
+```js
+const obj = reactive({
+  a: 1,
+  b: 2
+});
+const a = toRef(obj, a);
+```
+
+3. 应用场景： 要将响应式中的某个属性单独提供给外部使用时
+4. `toRefs` 和 `toRef` 功能一致，但是可以批量创建多个 ref 对象
+
+```js
+const obj = reactive({
+  a: 1,
+  b: 2
+});
+const { a, b } = toRefs(obj);
+```
+
 ## Vue3.0 中的响应式原理
 
 ### Vue 2.x 中的响应式原理
@@ -205,120 +229,108 @@ const p = new Proxy(person, {
 });
 ```
 
-## 计算属性 computed
+## shallowRef 与 shallowReactive
+
+- `shallowReactive`： 只处理对象最外层属性的响应式（浅响应式）
+- `shallowRef`：只处理基本数据类型的响应式
+- 使用场景
+  - 如果一个对象数据，数据结构比较深，但变化时，只是最外层属性变化，可以使用 shallowReactive
+  - 如果一个对象数据，后续功能不会修改该对象中的属性，而是生成新的对象来替换，可以使用 shallowRef
+
+## readonly 与 shallowReadonly
+
+- readonly: 让一个响应式数据变为只读的（深只读）
+- shallowReadonly: 让一个响应式数据变为只读的（浅只读）
+- 应用场景： 不希望数据被修改时
+
+## toRaw 与 markRaw
+
+- **toRaw**
+
+  - 将 reactive 生成响应式对象转换为普通对象
+  - 用于读取响应式对象对象的普通对象，这个普通对象的所有操作不会引起页面更新
+
+- **markRaw**
+  - 标记一个对象，使其永远不会成为响应式对象
+  - 有些值不应被设置成响应式，例如三方类库
+  - 当渲染局部不可变数据源的大列表时，跳过响应式可以提高性能
+
+## customRef
+
+- 创建一个自定义 ref，并对其依赖项跟踪和更新触发进行显式控制
 
 ```js
-<template>
-  <div>
-    <p>{{name}}</p>
-</template>
-import { computed } from 'vue';
-.....
-setup() {
-  let firstName = ref('张');
-  let lastName = ref('三');
-
-  // 计算属性 -- 简写
-  let fullName = computed(() => {
-    return firstName.value + ' ' +lastName.value;
-  });
-
-  // 计算属性 -- 完整写法
-  let fullName = computed({
-    get() {
-      return firstName.value + '-' + lastName.value;
-    },
-    set(newValue) {
-      let names = newValue.split('-');
-      firstName.value = names[0];
-      lastName.value = names[1];
+// 实现一个延迟的 ref
+const delayRef = (value.delay)=> {
+  let timer = null;
+  return customRef((track,trigger) => {
+    return {
+      get(){
+        track();
+        return value;
+      },
+      set(newValue){
+        clearTimeout(timer);
+        timer = setTimeout(() =>{
+          value = newValue;
+          trigger();
+        }, delay);
+      }
     }
-  });
+  })
+}
 
-  return {
-    name
+```
+
+## provide 与 inject
+
+- 适用于 跨级组件(祖孙组件通信)
+
+- 父组件有一个 `provide` 选项提供数据，子组件通过 `inject` 选项获取并使用数据
+
+```js
+// 父组件
+
+import { provide } from 'vue';
+
+setup(){
+  ....
+  let person = {
+    name: '张三',
+    age: 18
   };
+  provide('person', person);
+  ....
+}
+
+// 后代组件
+
+import { inject } from 'vue';
+
+setup(){
+  ....
+  const student = inject('person');
+  ....
+  return{
+    student
+  }
+
 }
 ```
 
-## watch 函数
+## 响应式数据判断
 
-```js
-import { watch } from 'vue';
-.....
-let sum = ref(0);
-let msg = ref('hello');
-let obj = ref({
-  a: 1,
-  b: 2
-});
+- isRef: 判断一个值是否是 ref 对象
+- isReactive: 判断一个值是否是 reactive 响应式代理
+- isReadonly: 判断一个值是否是 readonly 创建的只读代理
+- isProxy: 判断一个值是否是 reactive 或 readonly 方法创建的代理
 
-// 监听ref数据变化
-watch(sum, (newValue, oldValue) => {
-  console.log(newValue, oldValue);
-},{immediate: true});
+## Composition API 的优势
 
-// 监听ref定义的对象 -- 方法一
-watch(obj.value, (newValue, oldValue) => {
-  console.log(newValue, oldValue);
-});
+- Options API 缺点
 
-// 监听ref定义的对象 -- 方法二
-watch(obj, (newValue, oldValue) => {
-  console.log(newValue, oldValue);
-},{deep: true});
+  新增或者修改一个需求，就需要分别在 data、methods、computed、watch 中添加对应的配置项
 
-// 监听多个ref属性变化
-watch([sum, msg],(newVal,oldVal)=>{
-  console.log('sum发生变化了',newVal[0],oldVal[0]); // sum发生变化了 1 0
-  console.log('msg发生变化了',newVal[1],oldVal[1]); // msg发生变化了 hello hello
-});
+- Composition API 优势
 
-
-let person =reactive({
-  name: '张三',
-  age: 18,
-  job:{
-    jodOne:{
-      name: '前端开发'
-    },
-  }
-});
-
-// 监听reactive所定义的响应式对象
-// 注意：无法正确的获取到oldValue
-// 注意：默认开启了深度监听
-watch(person, (newVal, oldVal) => {
-  console.log('person发生变化了', newVal, oldVal);
-});
-
-// 监听reactive所定义的响应式对象的某个属性
-watch(()=>person.age, (newVal, oldVal) => {
-  console.log('person.age发生变化了', newVal, oldVal);
-});
-
-// 监听reactive所定义的响应式对象的某个属性(该属性值为对象时)，deep配置有效
-watch(()=>person.job, (newVal, oldVal) => {
-  console.log('person.job发生变化了', newVal, oldVal);
-},{deep: true});
-```
-
-## watchEffect 函数  
-
-- watch函数的套路，既要指明监听的属性，又要指明监听的回调  
-
-- watchEffect的套路，不用指明监听哪个属性，监听的回调中用到哪个属性，就监听哪个属性，属性变化就触发监听  
-
-- watchEffect有点像computed
-  - computed注重计算出来的值（回调函数的返回值），必须写返回值
-  - watchEffect更注重的是过程（回调函数的函数体），不用写返回值
-
-```js
-
-
-```js
-watchEffect(() => {
-  console.log('watchEffect');
-});
-```
-```
+  可以更加优雅的组织代码、函数，让相关功能更加有序的组织在一起
