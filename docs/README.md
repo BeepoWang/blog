@@ -1,6 +1,6 @@
 ---
 home: true
-bgImage: /banner.jpg
+# bgImage: /banner.png
 heroText: 前端杂院
 tagline: 朝罢从容归陋院,喜看旭日散晴辉
 actionText: 开始学习 →

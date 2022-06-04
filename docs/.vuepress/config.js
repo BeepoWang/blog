@@ -3,9 +3,6 @@ module.exports = {
   base: '/',
   descritption: '前端知识栈',
   theme: 'reco',
-  themeConfig: {
-    // 博客配置
-  },
   locales: {
     '/': {
       lang: 'zh-CN'
@@ -14,6 +11,7 @@ module.exports = {
   port: '9000',
   head: [
     ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }],
+    ['meta', { name: 'baidu-site-verification', content: 'code-CeXCMZga34' }],
     ['link', { href: 'https://cdn.jsdelivr.net/npm/@docsearch/css@3', rel: 'stylesheet' }],
     ['script', { src: 'https://cdn.jsdelivr.net/npm/@docsearch/js@3' }],
     [
@@ -30,8 +28,112 @@ module.exports = {
       `
     ]
   ],
+  plugins: [
+    // 自动生成侧边栏的插件
+    [
+      'vuepress-plugin-auto-sidebar',
+      {
+        collapse: {
+          open: true
+        }
+      }
+    ],
+    // 代码复制
+    [
+      'vuepress-plugin-nuggets-style-copy',
+      {
+        copyText: '复制代码',
+        tip: {
+          content: '复制成功!'
+        }
+      }
+    ],
+    ['vuepress-plugin-boxx'],
+    // 谷歌分析
+    [
+      '@vuepress/google-analytics',
+      {
+        ga: 'UA-228936572-1' // UA-00000000-0
+      }
+    ],
+    [
+      '@vuepress/last-updated',
+      {
+        transformer: (timestamp, lang) => {
+          return new Date(timestamp).toLocaleDateString();
+        }
+      }
+    ],
+    // 樱花飘落效果
+    // [
+    //   'sakura',
+    //   {
+    //     num: 20,
+    //     show: true, //  是否显示
+    //     zIndex: -1, // 层级
+    //     img: {
+    //       replace: false // false 默认图 true 换图 需要填写httpUrl地址
+    //     }
+    //   }
+    // ],
+    // 鼠标动效
+    [
+      'cursor-effects',
+      {
+        size: 2, // size of the particle, default: 2
+        shape: 'circle', // shape of the particle, default: 'star'
+        zIndex: 999999999 // z-index property of the canvas, default: 999999999
+      }
+    ],
+    // 背景彩带
+    [
+      'ribbon-animation',
+      {
+        size: 90, // 默认数据
+        opacity: 0.3, //  透明度
+        zIndex: -1, //  层级
+        opt: {
+          // 色带HSL饱和度
+          colorSaturation: '80%',
+          // 色带HSL亮度量
+          colorBrightness: '50%',
+          // 带状颜色不透明度
+          colorAlpha: 0.65,
+          // 在HSL颜色空间中循环显示颜色的速度有多快
+          colorCycleSpeed: 6,
+          // 从哪一侧开始Y轴 (top|min, middle|center, bottom|max, random)
+          verticalPosition: 'random',
+          // 到达屏幕另一侧的速度有多快
+          horizontalSpeed: 200,
+          // 在任何给定时间，屏幕上会保留多少条带
+          ribbonCount: 2,
+          // 添加笔划以及色带填充颜色
+          strokeSize: 0,
+          // 通过页面滚动上的因子垂直移动色带
+          parallaxAmount: -0.5,
+          // 随着时间的推移，为每个功能区添加动画效果
+          animateSections: true
+        },
+        ribbonShow: false, //  点击彩带  true显示  false为不显示
+        ribbonAnimationShow: true // 滑动彩带
+      }
+    ],
+    // sitemap
+    [
+      'sitemap',
+      {
+        hostname: 'https://www.beppo.fun'
+      }
+    ],
+    // 回到顶部
+    'go-top'
+  ],
+  markdown: {
+    lineNumbers: true
+  },
   themeConfig: {
     type: 'blog',
+    mode: 'dark',
     author: 'wangtao',
     authorAvatar: '/avatar.jpeg',
     // 导航栏配置
@@ -39,7 +141,6 @@ module.exports = {
     nav: [
       { text: '首页', link: '/' },
       { text: '面试', link: '/interview/' },
-      // { text: '前端框架', link: '/framework/Vue' },
       {
         text: '前端技术',
         items: [
@@ -65,113 +166,17 @@ module.exports = {
         ]
       }
     ],
-    // 侧边栏配置
-    sidebar: {
-      '/interview/': [
-        {
-          title: 'Vue',
-          path: '/interview/vue'
-          // children:[
-          //   {title}
-          // ]
-        },
-        {
-          title: 'Javascript',
-          path: '/interview/js'
-        }
-      ],
-      '/guide/': [
-        {
-          title: 'Javascript',
-          children: [
-            { title: '数据类型', path: '/guide/javascript/dataType' },
-            { title: '防抖与节流', path: '/guide/javascript/debounce' },
-            { title: '函数柯里化', path: '/guide/javascript/curry' },
-            { title: 'valueOf / toString', path: '/guide/javascript/valueOf' }
-          ]
-        },
-        {
-          title: 'Vue',
-          children: [
-            { title: 'axios封装', path: '/guide/vue/axios' },
-            { title: '高德地图应用', path: '/guide/vue/amap' },
-            { title: 'websocket消息通知', path: '/guide/vue/websocket' },
-            { title: 'Vue复习', path: '/guide/vue/reStudyVue' },
-            { title: 'Vue3 学习(1)', path: '/guide/vue/vue3' },
-            { title: 'Vue3 学习(2)', path: '/guide/vue/vue3-lifecycle' },
-            { title: 'Vue3 学习(3)', path: '/guide/vue/vue3-components' }
-          ]
-        },
-        {
-          title: '开发环境',
-          children: [
-            { title: 'SSH key 配置', path: '/guide/system/ssh' },
-            { title: 'node版本管理-nvm', path: '/guide/system/nvm' },
-            { title: 'Linux下nginx安装', path: '/guide/system/Nginx' }
-          ]
-        },
-        {
-          title: '网络',
-          children: [{ title: 'XSS、XSRF 网络安全', path: '/guide/network/xss' }]
-        },
-        {
-          title: '小程序',
-          children: [
-            { title: '微信JSSDK', path: '/guide/miniprogram/wechat' },
-            { title: '小程序全局样式', path: '/guide/miniprogram/globalCss' }
-          ]
-        },
-        {
-          title: '代码规范',
-          collapsable: true,
-          children: [
-            { title: '命名规则', path: '/guide/specification/' },
-            { title: 'Js编写规范', path: '/guide/specification/js' },
-            { title: 'Vue编写规范', path: '/guide/specification/vue' },
-            { title: 'Eslint规范', path: '/guide/specification/Eslint' },
-            { title: 'Commit规范', path: '/guide/specification/commitLint' },
-            { title: 'Prettier', path: '/guide/specification/prettier' }
-          ]
-        },
-        {
-          title: '算法',
-          children: [{ title: 'leetCode Hot 100', path: '/guide/LeetCode/leetcode' }]
-        }
-      ]
-    },
-    markdown: {
-      lineNumbers: true,
-      toc: { includeLevel: [2, 3] }
-    },
     lastUpdated: 'Last Updated',
-    plugins: [
-      [
-        'vuepress-plugin-nuggets-style-copy',
-        {
-          copyText: '复制代码',
-          tip: {
-            content: '复制成功!'
-          }
-        }
-      ],
-      [
-        '@vuepress/google-analytics',
-        {
-          ga: 'G-STRHV338JN' // UA-00000000-0
-        }
-      ],
-      '@vuepress/back-to-top'
-    ],
-    blogConfig: {
-      // tag: {
-      //   location: -1, // 在导航栏菜单中所占的位置，默认3
-      //   text: 'Tag' // 默认文案 “标签”
-      // }
+    algolia: {
+      apiKey: '3edfd4b716cabbdd5011b132f924b4bc',
+      indexName: 'beppo',
+      // 如果 Algolia 没有为你提供 `appId` ，使用 `BH4D9OD16A` 或者移除该配置项
+      appId: 'MTD6SONHRQ'
     },
     // 备案
     record: ' 繁华落尽是沧桑',
     recordLink: 'http://www.beppo.fun',
-    cyberSecurityRecord: '豫ICP备20001334号-1',
+    cyberSecurityRecord: '豫ICP备20001334号',
     cyberSecurityLink: '',
     valineConfig: {
       avatar: 'wavatar',
