@@ -3,7 +3,7 @@ title: 'Vue3 学习(3) - components'
 date: '2022-05-29'
 sticky: 3
 tags:
-  - vue
+  - 'Vue'
 ---
 
 ## Fragment

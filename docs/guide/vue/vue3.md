@@ -3,7 +3,7 @@ title: 'Vue3 学习(1)- Compositions API'
 date: '2022-05-28'
 sticky: 1
 tags:
-  - vue
+ - 'Vue'
 ---
 
 ## setup 函数

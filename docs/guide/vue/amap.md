@@ -2,7 +2,7 @@
 title: 高德地图应用
 date: '2022-04-28'
 tags:
-  - vue
+  - 'Vue'
 ---
 
 ## 创建高德账号，申请 key
@@ -226,7 +226,6 @@ methods:{
 ```
 
  <img src="https://persongitbook.oss-cn-beijing.aliyuncs.com/poi_search.png">
-
 
 ### 3. 手机 H5 实现高德地图地理位置选择
 

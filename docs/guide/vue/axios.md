@@ -2,7 +2,7 @@
 title: axios 封装
 date: '2022-04-28'
 tags:
-  - vue
+  - 'Vue'
 ---
 
 ## axios 安装
@@ -34,14 +34,14 @@ axios.patch(url[, data[, config]])
 #### 并发请求
 
 ```js
-axios.all(iterable) // 进行多个请求
-axios.spread(callback) // 分割多个返回参数
+axios.all(iterable); // 进行多个请求
+axios.spread(callback); // 分割多个返回参数
 // 实例
 axios.all([axios.get('url'), axios.get('url2')]).then(
   axios.spread((url1Resp, url2Resp) => {
-    console.log(url1Resp, url2Resp)
+    console.log(url1Resp, url2Resp);
   })
-)
+);
 ```
 
 ## 项目中 axios 封装
@@ -197,14 +197,14 @@ export default service
 在 api/request.ts 封装使用
 
 ```ts
-import service from '@/utils/http'
-import { AxiosRequestConfig, Method } from 'axios'
+import service from '@/utils/http';
+import { AxiosRequestConfig, Method } from 'axios';
 
 interface HTTPConfig extends AxiosRequestConfig {
-  url: string
-  method: Method
-  data?: { [key: string]: any }
-  params?: { [key: string]: any }
+  url: string;
+  method: Method;
+  data?: { [key: string]: any };
+  params?: { [key: string]: any };
 }
 
 export const request = <T>(config: HTTPConfig): Promise<T> => {
@@ -215,42 +215,42 @@ export const request = <T>(config: HTTPConfig): Promise<T> => {
       ...config
     })
       .then((res) => {
-        resolve(res.data)
+        resolve(res.data);
       })
       .catch((err) => {
-        reject(err)
-      })
-  })
-}
+        reject(err);
+      });
+  });
+};
 ```
 
 ```ts
-import { request } from './request'
+import { request } from './request';
 
 interface ResponseData<T> {
-  code: number
-  desc: string
-  msg: string
-  data: T
+  code: number;
+  desc: string;
+  msg: string;
+  data: T;
 }
 
 type LoginParams = {
-  username: string
-  password: string
-}
+  username: string;
+  password: string;
+};
 
 type LoginResp = {
-  account: string
-  token: string
-}
+  account: string;
+  token: string;
+};
 
 export const userLogin = (data: LoginParams) => {
   return request<ResponseData<LoginResp>>({
     url: '/login',
     method: 'POST',
     data
-  })
-}
+  });
+};
 ```
 
 #### 参考文档

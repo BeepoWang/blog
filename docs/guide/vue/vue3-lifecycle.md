@@ -3,7 +3,7 @@ title: 'Vue3 学习(2) - 生命周期'
 date: '2022-05-29'
 sticky: 2
 tags:
-  - vue
+ - 'Vue'
 ---
 
 ## Vue3.0 生命周期
