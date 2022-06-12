@@ -150,6 +150,7 @@ module.exports = {
           { text: 'Vuepress', link: 'https://vuepress.vuejs.org/zh/' }
         ]
       },
+      { text: 'TimeLine', link: '/timeline/', icon: 'reco-date' },
       {
         text: 'UI组件库',
         items: [
