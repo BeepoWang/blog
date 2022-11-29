@@ -1,4 +1,9 @@
-## ThreeJS 光源
+---
+title: ThreeJs Light
+date: '2022-07-28'
+tags:
+  - Three
+---
 
 ### 环境光(AmbientLight)
  - 构造函数 `new THREE.AmbientLight(color, intensity)`

@@ -1,4 +1,9 @@
-## ThreeJs 材质(Material)
+---
+title: ThreeJs Material
+date: '2022-07-28'
+tags:
+  - Three
+---
 
 材质描述了对象的外观，他们定义的方式与渲染器无关，切换不同渲染器时，不必重写材质。
 ### 基础属性

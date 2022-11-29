@@ -12,8 +12,8 @@ module.exports = {
   head: [
     ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }],
     ['meta', { name: 'baidu-site-verification', content: 'code-CeXCMZga34' }],
-    ['link', { href: 'https://cdn.jsdelivr.net/npm/@docsearch/css@3', rel: 'stylesheet' }],
-    ['script', { src: 'https://cdn.jsdelivr.net/npm/@docsearch/js@3' }],
+    // ['link', { href: 'https://cdn.jsdelivr.net/npm/@docsearch/css@3', rel: 'stylesheet' }],
+    // ['script', { src: 'https://cdn.jsdelivr.net/npm/@docsearch/js@3' }],
     [
       'script',
       {},
@@ -145,9 +145,13 @@ module.exports = {
         text: '前端技术',
         items: [
           { text: 'TypeScript', link: 'https://www.tslang.cn/' },
-          { text: 'Vue.js', link: 'https://cn.vuejs.org/' },
           { text: 'React', link: 'https://react.docschina.org/' },
-          { text: 'Vuepress', link: 'https://vuepress.vuejs.org/zh/' }
+          { text: 'Vue.js', link: 'https://cn.vuejs.org/' },
+          { text: 'Pinia', link: 'https://pinia.vuejs.org/' },
+          { text: 'Vite', link: 'https://cn.vitejs.dev/' },
+          { text: 'VueUse', link: 'https://vueuse.org/' },
+          { text: 'Vuepress', link: 'https://vuepress.vuejs.org/zh/' },
+          { text: 'Unocss', link: 'https://uno.antfu.me/' }
         ]
       },
       { text: 'TimeLine', link: '/timeline/', icon: 'reco-date' },
@@ -162,6 +166,10 @@ module.exports = {
           {
             text: 'Ant Design Vue',
             link: 'https://www.antdv.com/docs/vue/introduce-cn/'
+          },
+          {
+            text: 'Naive UI',
+            link: 'https://www.naiveui.com/zh-CN/os-theme'
           },
           { text: 'Vant', link: 'https://vant-contrib.gitee.io/vant/#/zh-CN/' }
         ]

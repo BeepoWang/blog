@@ -1,4 +1,9 @@
-## ThreeJS 场景
+---
+title: ThreeJs Scene
+date: '2022-07-28'
+tags:
+  - Three
+---
 
 ### 创建场景
 使用`new THREE.Scene()`创建场景。一个场景想要显示人何东西，都需要三种类型的组件
