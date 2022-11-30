@@ -10,5 +10,5 @@ git config user.email "beppowang@gmail.com"
 git add -A
 git commit -m 'deploy'
 
-git push -f git@beppo.github.com:BeepoWang/blog.git master:gh-pages
+git push -f https://github.com/BeepoWang/blog.git master:gh-pages
 cd -
